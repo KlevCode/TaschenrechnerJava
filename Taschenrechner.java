@@ -19,7 +19,7 @@ public class Taschenrechner implements ActionListener {
 	Font myFont = new Font("Ink Free", Font.BOLD, 20);
 	
 	double num1 = 0, num2 = 0, result = 0;
-	char operator;
+	String operator;
 	
 	Taschenrechner() {
 		
@@ -102,9 +102,31 @@ public class Taschenrechner implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
 		
+		for (int i = 0; i <10; i++) {
+			if (e.getSource() == numberButtons[i]) {
+				textfield.setText(textfield.getText().concat(String.valueOf(i)));
+			}
+		}
+		if (e.getSource() == decButton) {
+			textfield.setText(textfield.getText().concat("."));
+		}
+		if (e.getSource() == addButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = "+";
+			textfield.setText("");
+		}
+		if (e.getSource() == addButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = "+";
+			textfield.setText("");
+		}
+		if (e.getSource() == subButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = "-";
+			textfield.setText("");
+		}
 	}
 
 }
